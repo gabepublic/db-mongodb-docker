@@ -167,6 +167,67 @@ $ docker run --name localdb -d -p 27017:27017 --network sm-network mongo:latest
   - Also see "Demo Python flask" below
 
 
+## Demo Javascript Mongoose
+
+Source: [Mongoose - Getting started](https://mongoosejs.com/docs/)
+
+- The `src-js` folder contains the nodejs application
+
+- Prerequisites:
+  - Nodejs
+
+- Run docker in the default setting
+```
+$ docker run --name localdb \
+             -d \
+			 -p 27017:27017 \
+			 mongo:latest
+```
+
+- Install mongoose
+```
+$ node --version
+v18.12.0
+$ npm --version
+8.19.2
+$ npm install mongoose --save
+```
+
+- Run the app to save Document into mongodb
+```
+$ cd src-js
+$ node 01-getting-started.js
+Silence
+Meow name is fluffy
+{
+  name: 'fluffy',
+  _id: new ObjectId("63647221b1140c1f439ec1c0"),
+  __v: 0
+}
+Meow name is fluffy
+CTRL-C
+```
+
+- Run the app to retrieve Document from mongodb
+```
+$ cd src-js
+$ node 02-retrieve.js
+[
+  {
+    _id: new ObjectId("636471241af1aed97ddf3ef8"),
+    name: 'fluffy',
+    __v: 0
+  },
+]
+{
+  _id: new ObjectId("636471241af1aed97ddf3ef8"),
+  name: 'fluffy',
+  __v: 0
+}
+Meow name is fluffy
+CTRL-C
+```
+
 
 ## Demo Python flask
 
@@ -185,9 +246,11 @@ $ docker run --name localdb \
              -d \
 			 -p 27017:27017 \
 			 mongo:latest
+
+$ docker ps
 ```
 
-- Open another console, to setup python virtual environment
+- Setup python virtual environment
 ```
 $ cd src-python
 $ virtualenv ./.venv
