@@ -27,8 +27,8 @@ For cloud service option, go to https://www.mongodb.com/atlas/database
 ```
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
-			 mongo:latest
+             -p 27017:27017 \
+             mongo:latest
 ```
 
 - Enter the container
@@ -62,9 +62,9 @@ $ cd <project-folder>
 $ mkdir data-mongodb
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
+             -p 27017:27017 \
              -v $(pwd)/data-mongodb:/data/db \
-			 mongo:latest
+             mongo:latest
 ```
 
   - Open another terminal, check the existing volumes
@@ -81,11 +81,11 @@ local data-mongodb
 ```
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
+             -p 27017:27017 \
              -v $(pwd)/data-mongodb:/data/db \
              -v ./mongo.conf:/etc/mongo/mongo.conf \
              --config /etc/mongo/mongo.conf	\ 
-			 mongo:latest
+             mongo:latest
 ```
 
 - [CONFIGURE] Add security by setting the username and password using
@@ -94,13 +94,13 @@ $ docker run --name localdb \
 ```
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
+             -p 27017:27017 \
              -v $(pwd)/data-mongodb:/data/db \
              -v ./mongo.conf:/etc/mongo/mongo.conf \
              --config /etc/mongo/mongo.conf	\
              -e MONGODB_INITDB_ROOT_USERNAME=example-user \
              -e MONGODB_INITDB_ROOT_PASSWORD=example-user-password \			 
-			 mongo:latest
+             mongo:latest
 ```
   - A more secured method - since the new user will be granted root 
     privileges, and will have access control to everything, it is 
@@ -111,13 +111,13 @@ $ docker run --name localdb \
 ```
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
+             -p 27017:27017 \
              -v $(pwd)/data-mongodb:/data/db \
              -v ./mongo.conf:/etc/mongo/mongo.conf \
              --config /etc/mongo/mongo.conf	\
              -e MONGODB_INITDB_ROOT_USERNAME=example-user \
              -e MONGODB_INITDB_ROOT_PASSWORD_FILE=$(pwd)/secrets/pwd \			 
-			 mongo:latest
+             mongo:latest
 ```
 
 - Inspect the environment variables
@@ -180,8 +180,8 @@ Source: [Mongoose - Getting started](https://mongoosejs.com/docs/)
 ```
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
-			 mongo:latest
+             -p 27017:27017 \
+             mongo:latest
 ```
 
 - Install mongoose
@@ -244,8 +244,8 @@ Github: https://github.com/Soumi7/Mongo-Docker
 ```
 $ docker run --name localdb \
              -d \
-			 -p 27017:27017 \
-			 mongo:latest
+             -p 27017:27017 \
+             mongo:latest
 
 $ docker ps
 ```
